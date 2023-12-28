@@ -14,9 +14,54 @@ class Wallet {
     this.config = { ...this.config, ...config };
   }
 
-  getLoggedInFingerprint(params, options = {}) {
+  getLoggedInFingerprint(options = {}) {
     return callAndAwaitChiaRPC(
       `${this.config.datalayer_host}/get_logged_in_fingerprint`,
+      {},
+      this.config,
+      options
+    );
+  }
+
+  getPrivateKey(params, options = {}) {
+    return callAndAwaitChiaRPC(
+      `${this.config.datalayer_host}/get_private_key`,
+      params,
+      this.config,
+      options
+    );
+  }
+
+  pushTx(params, options = {}) {
+    return callAndAwaitChiaRPC(
+      `${this.config.datalayer_host}/push_tx`,
+      params,
+      this.config,
+      options
+    );
+  }
+
+  getCoinRecords(params, options = {}) {
+    return callAndAwaitChiaRPC(
+      `${this.config.datalayer_host}/get_coin_records`,
+      params,
+      this.config,
+      options
+    );
+  }
+
+  getCoinRecordsByName(params, options = {}) {
+    return callAndAwaitChiaRPC(
+      `${this.config.datalayer_host}/get_coin_records_by_names`,
+      params,
+      this.config,
+      options
+    );
+  }
+
+  getSpendableCoins(params, options = {}) {
+    return callAndAwaitChiaRPC(
+      `${this.config.datalayer_host}/get_spendable_coins`,
       params,
       this.config,
       options
