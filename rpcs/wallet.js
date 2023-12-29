@@ -19,7 +19,10 @@ class Wallet {
       `${this.config.wallet_host}/get_logged_in_fingerprint`,
       {},
       this.config,
-      options
+      {
+        includeFee: false,
+        ...options,
+      }
     );
   }
 
@@ -28,7 +31,10 @@ class Wallet {
       `${this.config.wallet_host}/get_private_key`,
       params,
       this.config,
-      options
+      {
+        includeFee: false,
+        ...options,
+      }
     );
   }
 
@@ -46,7 +52,10 @@ class Wallet {
       `${this.config.wallet_host}/get_coin_records`,
       params,
       this.config,
-      options
+      {
+        includeFee: false,
+        ...options,
+      }
     );
   }
 
@@ -55,7 +64,10 @@ class Wallet {
       `${this.config.wallet_host}/get_coin_records_by_names`,
       params,
       this.config,
-      options
+      {
+        includeFee: false,
+        ...options,
+      }
     );
   }
 
@@ -64,7 +76,10 @@ class Wallet {
       `${this.config.wallet_host}/get_spendable_coins`,
       params,
       this.config,
-      options
+      {
+        includeFee: false,
+        ...options,
+      }
     );
   }
 }
