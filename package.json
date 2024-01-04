@@ -1,6 +1,6 @@
 {
   "name": "chia-wallet",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Wrapper for Chia Wallet RPCs",
   "main": "index.js",
   "types": "wallet.d.ts",

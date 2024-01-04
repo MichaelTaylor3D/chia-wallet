@@ -1,6 +1,6 @@
 // wallet.d.ts
 declare module "chia-wallet" {
-  interface Config {
+  export interface Config {
     full_node_host?: string;
     wallet_host?: string;
     certificate_folder_path?: string;
@@ -11,11 +11,11 @@ declare module "chia-wallet" {
     verbose?: boolean;
   }
 
-  interface PushTxRequest {
+  export interface PushTxRequest {
     spend_bundle: string;
   }
 
-  interface SpendableCoinRequest {
+  export interface SpendableCoinRequest {
     wallet_id: number;
     min_coin_amount?: number;
     max_coin_amount?: number;
@@ -23,18 +23,18 @@ declare module "chia-wallet" {
     excluded_coin_ids?: string[];
   }
 
-  interface CoinRecordsByNameRequest {
+  export interface CoinRecordsByNameRequest {
     names: string[];
     start_height?: number;
     end_height?: number;
     include_spent_coins?: boolean;
   }
 
-  interface GetPrivateKeyResponse {
+  export interface GetPrivateKeyResponse {
     fingerprint: number;
   }
 
-  class Wallet {
+  export class Wallet {
     constructor(config?: Config);
     getConfig(): Config;
     setConfig(config: Config): void;
@@ -42,16 +42,7 @@ declare module "chia-wallet" {
     getCoinRecords(options?: any): any;
     getPrivateKey(params: GetPrivateKeyResponse, options?: any): any;
     getCoinRecordsByName(params: CoinRecordsByNameRequest, options?: any): any;
-    getSpendableCoins(params: SpendableCoinRequest, options?: any): any;
+    getSpendablCoins(params: SpendableCoinRequest, options?: any): any;
     pushTx(params: PushTxRequest, options?: any): any;
   }
-
-  export {
-    Wallet,
-    Config,
-    PushTxRequest,
-    SpendableCoinRequest,
-    CoinRecordsByNameRequest,
-    GetPrivateKeyResponse,
-  };
 }
