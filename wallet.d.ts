@@ -42,9 +42,16 @@ declare module "chia-wallet" {
     getCoinRecords(options?: any): any;
     getPrivateKey(params: GetPrivateKeyResponse, options?: any): any;
     getCoinRecordsByName(params: CoinRecordsByNameRequest, options?: any): any;
-    getSpendablCoins(params: SpendableCoinRequest, options?: any): any;
+    getSpendableCoins(params: SpendableCoinRequest, options?: any): any;
     pushTx(params: PushTxRequest, options?: any): any;
   }
 
-  export = Wallet;
+  export {
+    Wallet,
+    Config,
+    PushTxRequest,
+    SpendableCoinRequest,
+    CoinRecordsByNameRequest,
+    GetPrivateKeyResponse,
+  };
 }
