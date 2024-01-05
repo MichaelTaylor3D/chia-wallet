@@ -34,7 +34,7 @@ declare module "chia-wallet" {
     fingerprint: number;
   }
 
-  export class Wallet {
+  export default class Wallet {
     constructor(config?: Config);
     getConfig(): Config;
     setConfig(config: Config): void;
