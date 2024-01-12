@@ -1,4 +1,3 @@
-// wallet.d.ts
 declare module "chia-wallet" {
   export interface Config {
     full_node_host?: string;
@@ -9,6 +8,13 @@ declare module "chia-wallet" {
     default_mirror_coin_amount?: number;
     allowUnverifiedCert?: boolean;
     verbose?: boolean;
+  }
+
+  export interface WalletUtils {
+    walletIsSynced(config: Config): Promise<boolean>;
+    walletIsAvailable(config: Config): Promise<boolean>;
+    waitForAllTransactionsToConfirm(config: Config): Promise<boolean>;
+    hasUnconfirmedTransactions(config: Config, options?: any): Promise<boolean>;
   }
 
   export interface PushTxRequest {
@@ -36,6 +42,7 @@ declare module "chia-wallet" {
 
   export default class Wallet {
     constructor(config?: Config);
+    readonly utils: WalletUtils;
     getConfig(): Config;
     setConfig(config: Config): void;
     getLoggedInFingerprint(options?: any): any;

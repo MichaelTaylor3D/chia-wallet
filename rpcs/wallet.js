@@ -1,5 +1,6 @@
 const { callAndAwaitChiaRPC } = require("./rpc-base");
 const { defaultConfig } = require("../utils/api-utils");
+const walletUtils = require("./wallet-utils");
 
 class Wallet {
   constructor(config = {}) {
@@ -12,6 +13,10 @@ class Wallet {
 
   setConfig(config) {
     this.config = { ...this.config, ...config };
+  }
+
+  get utils() {
+    return walletUtils;
   }
 
   getLoggedInFingerprint(options = {}) {
