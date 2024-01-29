@@ -40,6 +40,10 @@ declare module "chia-wallet" {
     fingerprint: number;
   }
 
+  export interface GetWalletBalanceResponse {
+    wallet_id: number;
+  }
+
   export default class Wallet {
     constructor(config?: Config);
     readonly utils: WalletUtils;
@@ -51,5 +55,7 @@ declare module "chia-wallet" {
     getCoinRecordsByName(params: CoinRecordsByNameRequest, options?: any): any;
     getSpendablCoins(params: SpendableCoinRequest, options?: any): any;
     pushTx(params: PushTxRequest, options?: any): any;
+    getSyncStatus(options?: any): any;
+    getWalletBalance(params: GetWalletBalanceResponse, options?: any): any;
   }
 }

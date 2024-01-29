@@ -87,6 +87,30 @@ class Wallet {
       }
     );
   }
+
+  getSyncStatus(options = {}) {
+    return callAndAwaitChiaRPC(
+      `${this.config.wallet_host}/get_sync_status`,
+      params,
+      this.config,
+      {
+        includeFee: false,
+        ...options,
+      }
+    );
+  }
+
+  getWalletBalance(params, options = {}) {
+    return callAndAwaitChiaRPC(
+      `${this.config.wallet_host}/get_wallet_balance`,
+      params,
+      this.config,
+      {
+        includeFee: false,
+        ...options,
+      }
+    );
+  }
 }
 
 module.exports = Wallet;
