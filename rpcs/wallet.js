@@ -112,6 +112,18 @@ class Wallet {
       }
     );
   }
+
+  getTransactions(params, options = {}) {
+    return callAndAwaitChiaRPC(
+      `${this.config.wallet_host}/get_transactions`,
+      params,
+      this.config,
+      {
+        includeFee: false,
+        ...options,
+      }
+    );
+  }
 }
 
 module.exports = Wallet;
