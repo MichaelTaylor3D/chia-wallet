@@ -46,7 +46,6 @@ declare module "chia-wallet" {
 
   export default class Wallet {
     constructor(config?: Config);
-    readonly utils: WalletUtils;
     getConfig(): Config;
     setConfig(config: Config): void;
     getLoggedInFingerprint(options?: any): any;

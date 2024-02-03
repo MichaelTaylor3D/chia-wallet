@@ -91,7 +91,7 @@ class Wallet {
   getSyncStatus(options = {}) {
     return callAndAwaitChiaRPC(
       `${this.config.wallet_host}/get_sync_status`,
-      params,
+      {},
       this.config,
       {
         includeFee: false,
