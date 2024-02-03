@@ -94,8 +94,9 @@ class Wallet {
       {},
       this.config,
       {
-        includeFee: false,
         ...options,
+        includeFee: false,
+        waitForWalletAvailability: false,
       }
     );
   }
