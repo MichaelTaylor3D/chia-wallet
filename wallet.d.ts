@@ -36,11 +36,11 @@ declare module "chia-wallet" {
     include_spent_coins?: boolean;
   }
 
-  export interface GetPrivateKeyResponse {
+  export interface GetPrivateKeyRequest {
     fingerprint: number;
   }
 
-  export interface GetWalletBalanceResponse {
+  export interface GetWalletBalanceRequest {
     wallet_id: number;
   }
 
@@ -67,12 +67,12 @@ declare module "chia-wallet" {
     setConfig(config: Config): void;
     getLoggedInFingerprint(options?: any): any;
     getCoinRecords(options?: any): any;
-    getPrivateKey(params: GetPrivateKeyResponse, options?: any): any;
+    getPrivateKey(params: GetPrivateKeyRequest, options?: any): any;
     getCoinRecordsByName(params: CoinRecordsByNameRequest, options?: any): any;
-    getSpendablCoins(params: SpendableCoinRequest, options?: any): any;
+    getSpendableCoins(params: SpendableCoinRequest, options?: any): any;
     pushTx(params: PushTxRequest, options?: any): any;
     getSyncStatus(options?: any): any;
-    getWalletBalance(params: GetWalletBalanceResponse, options?: any): any;
+    getWalletBalance(params: GetWalletBalanceRequest, options?: any): any;
     getTransactions(params: GetTransactionsRequest, options?: any): any;
     sendTransaction(params: SendTransactionRequest, options?: any): any;
     getNetworkInfo(options?: any): any;
