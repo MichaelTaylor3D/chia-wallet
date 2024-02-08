@@ -52,6 +52,15 @@ class Wallet {
     );
   }
 
+  sendTransaction(params, options = {}) {
+    return callAndAwaitChiaRPC(
+      `${this.config.wallet_host}/send_transaction`,
+      params,
+      this.config,
+      options
+    );
+  }
+
   getCoinRecords(params, options = {}) {
     return callAndAwaitChiaRPC(
       `${this.config.wallet_host}/get_coin_records`,

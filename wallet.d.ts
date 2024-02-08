@@ -48,6 +48,19 @@ declare module "chia-wallet" {
     wallet_id: number;
   }
 
+  export interface SendTransactionRequest {
+    wallet_id: number;
+    address: string;
+    amount: number; // The number of mojos to send
+    fee?: number;
+    memos?: string[];
+    min_coin_amount?: number;
+    max_coin_amount?: number;
+    exclude_coin_amounts?: number[];
+    exlude_coin_ids?: string[];
+    reuse_puzhash?: boolean;
+  }
+
   export default class Wallet {
     constructor(config?: Config);
     getConfig(): Config;
@@ -61,5 +74,6 @@ declare module "chia-wallet" {
     getSyncStatus(options?: any): any;
     getWalletBalance(params: GetWalletBalanceResponse, options?: any): any;
     getTransactions(params: GetTransactionsRequest, options?: any): any;
+    sendTransaction(params: SendTransactionRequest, options?: any): any;
   }
 }
