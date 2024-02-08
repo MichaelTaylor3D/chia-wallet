@@ -75,5 +75,6 @@ declare module "chia-wallet" {
     getWalletBalance(params: GetWalletBalanceResponse, options?: any): any;
     getTransactions(params: GetTransactionsRequest, options?: any): any;
     sendTransaction(params: SendTransactionRequest, options?: any): any;
+    getNetworkInfo(options?: any): any;
   }
 }

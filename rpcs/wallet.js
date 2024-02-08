@@ -25,8 +25,9 @@ class Wallet {
       {},
       this.config,
       {
-        includeFee: false,
         ...options,
+        includeFee: false,
+        waitForWalletAvailability: false,
       }
     );
   }
@@ -37,8 +38,9 @@ class Wallet {
       params,
       this.config,
       {
-        includeFee: false,
         ...options,
+        includeFee: false,
+        waitForWalletAvailability: false,
       }
     );
   }
@@ -67,8 +69,8 @@ class Wallet {
       params,
       this.config,
       {
-        includeFee: false,
         ...options,
+        includeFee: false,
       }
     );
   }
@@ -79,8 +81,8 @@ class Wallet {
       params,
       this.config,
       {
-        includeFee: false,
         ...options,
+        includeFee: false,
       }
     );
   }
@@ -91,8 +93,8 @@ class Wallet {
       params,
       this.config,
       {
-        includeFee: false,
         ...options,
+        includeFee: false,
       }
     );
   }
@@ -116,8 +118,8 @@ class Wallet {
       params,
       this.config,
       {
-        includeFee: false,
         ...options,
+        includeFee: false,
       }
     );
   }
@@ -128,8 +130,21 @@ class Wallet {
       params,
       this.config,
       {
-        includeFee: false,
         ...options,
+        includeFee: false,
+      }
+    );
+  }
+
+  getNetworkInfo(options = {}) {
+    return callAndAwaitChiaRPC(
+      `${this.config.wallet_host}/get_network_info`,
+      {},
+      this.config,
+      {
+        ...options,
+        includeFee: false,
+        waitForWalletAvailability: false
       }
     );
   }
